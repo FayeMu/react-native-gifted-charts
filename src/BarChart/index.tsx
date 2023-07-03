@@ -269,68 +269,68 @@ export const BarChart = (props: PropTypes) => {
   };
   const lineConfig = props.lineConfig
     ? {
-        initialSpacing:
-          props.lineConfig.initialSpacing === 0
-            ? 0
-            : props.lineConfig.initialSpacing ||
-              defaultLineConfig.initialSpacing,
-        curved: props.lineConfig.curved || defaultLineConfig.curved,
-        isAnimated: props.lineConfig.isAnimated || defaultLineConfig.isAnimated,
-        thickness: props.lineConfig.thickness || defaultLineConfig.thickness,
-        color: props.lineConfig.color || defaultLineConfig.color,
-        hideDataPoints:
-          props.lineConfig.hideDataPoints || defaultLineConfig.hideDataPoints,
-        dataPointsShape:
-          props.lineConfig.dataPointsShape || defaultLineConfig.dataPointsShape,
-        dataPointsHeight:
-          props.lineConfig.dataPointsHeight ||
-          defaultLineConfig.dataPointsHeight,
-        dataPointsWidth:
-          props.lineConfig.dataPointsWidth || defaultLineConfig.dataPointsWidth,
-        dataPointsColor:
-          props.lineConfig.dataPointsColor || defaultLineConfig.dataPointsColor,
-        dataPointsRadius:
-          props.lineConfig.dataPointsRadius ||
-          defaultLineConfig.dataPointsRadius,
-        textColor: props.lineConfig.textColor || defaultLineConfig.textColor,
-        textFontSize:
-          props.lineConfig.textFontSize || defaultLineConfig.textFontSize,
-        textShiftX: props.lineConfig.textShiftX || defaultLineConfig.textShiftX,
-        textShiftY: props.lineConfig.textShiftY || defaultLineConfig.textShiftY,
-        shiftY: props.lineConfig.shiftY || defaultLineConfig.shiftY,
-        delay: props.lineConfig.delay || defaultLineConfig.delay,
-        startIndex: props.lineConfig.startIndex || defaultLineConfig.startIndex,
-        endIndex:
-          props.lineConfig.endIndex === 0
-            ? 0
-            : props.lineConfig.endIndex || defaultLineConfig.endIndex,
+      initialSpacing:
+        props.lineConfig.initialSpacing === 0
+          ? 0
+          : props.lineConfig.initialSpacing ||
+          defaultLineConfig.initialSpacing,
+      curved: props.lineConfig.curved || defaultLineConfig.curved,
+      isAnimated: props.lineConfig.isAnimated || defaultLineConfig.isAnimated,
+      thickness: props.lineConfig.thickness || defaultLineConfig.thickness,
+      color: props.lineConfig.color || defaultLineConfig.color,
+      hideDataPoints:
+        props.lineConfig.hideDataPoints || defaultLineConfig.hideDataPoints,
+      dataPointsShape:
+        props.lineConfig.dataPointsShape || defaultLineConfig.dataPointsShape,
+      dataPointsHeight:
+        props.lineConfig.dataPointsHeight ||
+        defaultLineConfig.dataPointsHeight,
+      dataPointsWidth:
+        props.lineConfig.dataPointsWidth || defaultLineConfig.dataPointsWidth,
+      dataPointsColor:
+        props.lineConfig.dataPointsColor || defaultLineConfig.dataPointsColor,
+      dataPointsRadius:
+        props.lineConfig.dataPointsRadius ||
+        defaultLineConfig.dataPointsRadius,
+      textColor: props.lineConfig.textColor || defaultLineConfig.textColor,
+      textFontSize:
+        props.lineConfig.textFontSize || defaultLineConfig.textFontSize,
+      textShiftX: props.lineConfig.textShiftX || defaultLineConfig.textShiftX,
+      textShiftY: props.lineConfig.textShiftY || defaultLineConfig.textShiftY,
+      shiftY: props.lineConfig.shiftY || defaultLineConfig.shiftY,
+      delay: props.lineConfig.delay || defaultLineConfig.delay,
+      startIndex: props.lineConfig.startIndex || defaultLineConfig.startIndex,
+      endIndex:
+        props.lineConfig.endIndex === 0
+          ? 0
+          : props.lineConfig.endIndex || defaultLineConfig.endIndex,
 
-        showArrow: props.lineConfig.showArrow ?? defaultLineConfig.showArrow,
-        arrowConfig: {
-          length:
-            props.lineConfig.arrowConfig?.length ??
-            defaultLineConfig.arrowConfig.length,
-          width:
-            props.lineConfig.arrowConfig?.width ??
-            defaultLineConfig.arrowConfig.width,
+      showArrow: props.lineConfig.showArrow ?? defaultLineConfig.showArrow,
+      arrowConfig: {
+        length:
+          props.lineConfig.arrowConfig?.length ??
+          defaultLineConfig.arrowConfig.length,
+        width:
+          props.lineConfig.arrowConfig?.width ??
+          defaultLineConfig.arrowConfig.width,
 
-          strokeWidth:
-            props.lineConfig.arrowConfig?.strokeWidth ??
-            defaultLineConfig.arrowConfig.strokeWidth,
+        strokeWidth:
+          props.lineConfig.arrowConfig?.strokeWidth ??
+          defaultLineConfig.arrowConfig.strokeWidth,
 
-          strokeColor:
-            props.lineConfig.arrowConfig?.strokeColor ??
-            defaultLineConfig.arrowConfig.strokeColor,
+        strokeColor:
+          props.lineConfig.arrowConfig?.strokeColor ??
+          defaultLineConfig.arrowConfig.strokeColor,
 
-          fillColor:
-            props.lineConfig.arrowConfig?.fillColor ??
-            defaultLineConfig.arrowConfig.fillColor,
+        fillColor:
+          props.lineConfig.arrowConfig?.fillColor ??
+          defaultLineConfig.arrowConfig.fillColor,
 
-          showArrowBase:
-            props.lineConfig.arrowConfig?.showArrowBase ??
-            defaultLineConfig.arrowConfig.showArrowBase,
-        },
-      }
+        showArrowBase:
+          props.lineConfig.arrowConfig?.showArrowBase ??
+          defaultLineConfig.arrowConfig.showArrowBase,
+      },
+    }
     : defaultLineConfig;
   const containerHeight = props.height || 200;
   const noOfSections = props.noOfSections || 10;
@@ -427,8 +427,8 @@ export const BarChart = (props: PropTypes) => {
   props.noOfVerticalLines
     ? (verticalLinesAr = [...Array(props.noOfVerticalLines).keys()])
     : (verticalLinesAr = [
-        ...Array(props.stackData ? props.stackData.length : data.length).keys(),
-      ]);
+      ...Array(props.stackData ? props.stackData.length : data.length).keys(),
+    ]);
   const verticalLinesSpacing = props.verticalLinesSpacing || 0;
 
   const showYAxisIndices = props.showYAxisIndices || false;
@@ -611,14 +611,14 @@ export const BarChart = (props: PropTypes) => {
             (data && data[i] && data[i].barWidth) || props.barWidth || 30;
           p1Array.push([
             yAxisLabelWidth +
-              lineConfig.initialSpacing +
-              6 -
-              (initialSpacing - currentBarWidth / 2) -
-              lineConfig.dataPointsWidth / 2 +
-              (currentBarWidth + spacing) * i,
+            lineConfig.initialSpacing +
+            6 -
+            (initialSpacing - currentBarWidth / 2) -
+            lineConfig.dataPointsWidth / 2 +
+            (currentBarWidth + spacing) * i,
             containerHeight -
-              lineConfig.shiftY -
-              (lineData[i].value * containerHeight) / maxValue,
+            lineConfig.shiftY -
+            (lineData[i].value * containerHeight) / maxValue,
           ]);
           let xx = svgPath(p1Array, bezierCommand);
           setPoints(xx);
@@ -677,22 +677,22 @@ export const BarChart = (props: PropTypes) => {
       : props.referenceLine1Position || containerHeight / 2;
   const referenceLine1Config = props.referenceLine1Config
     ? {
-        thickness: props.referenceLine1Config.thickness || rulesThickness,
-        width: horizontal
-          ? props.referenceLine1Config.width || props.width || totalWidth
-          : (props.referenceLine1Config.width || props.width || totalWidth) +
-            11,
-        color: props.referenceLine1Config.color || 'black',
-        type: props.referenceLine1Config.type || rulesType,
-        dashWidth: props.referenceLine1Config.dashWidth || dashWidth,
-        dashGap: props.referenceLine1Config.dashGap || dashGap,
-        labelText:
-          props.referenceLine1Config.labelText ||
-          defaultReferenceConfig.labelText,
-        labelTextStyle:
-          props.referenceLine1Config.labelTextStyle ||
-          defaultReferenceConfig.labelTextStyle,
-      }
+      thickness: props.referenceLine1Config.thickness || rulesThickness,
+      width: horizontal
+        ? props.referenceLine1Config.width || props.width || totalWidth
+        : (props.referenceLine1Config.width || props.width || totalWidth) +
+        11,
+      color: props.referenceLine1Config.color || 'black',
+      type: props.referenceLine1Config.type || rulesType,
+      dashWidth: props.referenceLine1Config.dashWidth || dashWidth,
+      dashGap: props.referenceLine1Config.dashGap || dashGap,
+      labelText:
+        props.referenceLine1Config.labelText ||
+        defaultReferenceConfig.labelText,
+      labelTextStyle:
+        props.referenceLine1Config.labelTextStyle ||
+        defaultReferenceConfig.labelTextStyle,
+    }
     : defaultReferenceConfig;
 
   const showReferenceLine2 = props.showReferenceLine2 || false;
@@ -702,22 +702,22 @@ export const BarChart = (props: PropTypes) => {
       : props.referenceLine2Position || (3 * containerHeight) / 2;
   const referenceLine2Config = props.referenceLine2Config
     ? {
-        thickness: props.referenceLine2Config.thickness || rulesThickness,
-        width: horizontal
-          ? props.referenceLine2Config.width || props.width || totalWidth
-          : (props.referenceLine2Config.width || props.width || totalWidth) +
-            11,
-        color: props.referenceLine2Config.color || 'black',
-        type: props.referenceLine2Config.type || rulesType,
-        dashWidth: props.referenceLine2Config.dashWidth || dashWidth,
-        dashGap: props.referenceLine2Config.dashGap || dashGap,
-        labelText:
-          props.referenceLine2Config.labelText ||
-          defaultReferenceConfig.labelText,
-        labelTextStyle:
-          props.referenceLine2Config.labelTextStyle ||
-          defaultReferenceConfig.labelTextStyle,
-      }
+      thickness: props.referenceLine2Config.thickness || rulesThickness,
+      width: horizontal
+        ? props.referenceLine2Config.width || props.width || totalWidth
+        : (props.referenceLine2Config.width || props.width || totalWidth) +
+        11,
+      color: props.referenceLine2Config.color || 'black',
+      type: props.referenceLine2Config.type || rulesType,
+      dashWidth: props.referenceLine2Config.dashWidth || dashWidth,
+      dashGap: props.referenceLine2Config.dashGap || dashGap,
+      labelText:
+        props.referenceLine2Config.labelText ||
+        defaultReferenceConfig.labelText,
+      labelTextStyle:
+        props.referenceLine2Config.labelTextStyle ||
+        defaultReferenceConfig.labelTextStyle,
+    }
     : defaultReferenceConfig;
 
   const showReferenceLine3 = props.showReferenceLine3 || false;
@@ -727,22 +727,22 @@ export const BarChart = (props: PropTypes) => {
       : props.referenceLine3Position || containerHeight / 3;
   const referenceLine3Config = props.referenceLine3Config
     ? {
-        thickness: props.referenceLine3Config.thickness || rulesThickness,
-        width: horizontal
-          ? props.referenceLine3Config.width || props.width || totalWidth
-          : (props.referenceLine3Config.width || props.width || totalWidth) +
-            11,
-        color: props.referenceLine3Config.color || 'black',
-        type: props.referenceLine3Config.type || rulesType,
-        dashWidth: props.referenceLine3Config.dashWidth || dashWidth,
-        dashGap: props.referenceLine3Config.dashGap || dashGap,
-        labelText:
-          props.referenceLine3Config.labelText ||
-          defaultReferenceConfig.labelText,
-        labelTextStyle:
-          props.referenceLine3Config.labelTextStyle ||
-          defaultReferenceConfig.labelTextStyle,
-      }
+      thickness: props.referenceLine3Config.thickness || rulesThickness,
+      width: horizontal
+        ? props.referenceLine3Config.width || props.width || totalWidth
+        : (props.referenceLine3Config.width || props.width || totalWidth) +
+        11,
+      color: props.referenceLine3Config.color || 'black',
+      type: props.referenceLine3Config.type || rulesType,
+      dashWidth: props.referenceLine3Config.dashWidth || dashWidth,
+      dashGap: props.referenceLine3Config.dashGap || dashGap,
+      labelText:
+        props.referenceLine3Config.labelText ||
+        defaultReferenceConfig.labelText,
+      labelTextStyle:
+        props.referenceLine3Config.labelTextStyle ||
+        defaultReferenceConfig.labelTextStyle,
+    }
     : defaultReferenceConfig;
 
   horizSections.pop();
@@ -766,7 +766,7 @@ export const BarChart = (props: PropTypes) => {
       horizSectionsBelow.push({
         value: props.yAxisLabelTexts
           ? props.yAxisLabelTexts[noOfSectionsBelowXAxis - i] ??
-            value.toString()
+          value.toString()
           : value.toString(),
       });
     }
@@ -838,15 +838,15 @@ export const BarChart = (props: PropTypes) => {
                     borderColor: yAxisColor,
                   },
                   horizontal &&
-                    !yAxisAtTop && {
-                      transform: [
-                        {
-                          translateX:
-                            (props.width || Math.min(300, totalWidth)) +
-                            yAxisThickness,
-                        },
-                      ],
-                    },
+                  !yAxisAtTop && {
+                    transform: [
+                      {
+                        translateX:
+                          (props.width || Math.min(300, totalWidth)) +
+                          yAxisThickness,
+                      },
+                    ],
+                  },
                   {
                     height:
                       index === noOfSections ? stepHeight / 2 : stepHeight,
@@ -986,9 +986,9 @@ export const BarChart = (props: PropTypes) => {
                     borderColor: yAxisColor,
                   },
                   horizontal &&
-                    !yAxisAtTop && {
-                      transform: [{translateX: totalWidth + yAxisThickness}],
-                    },
+                  !yAxisAtTop && {
+                    transform: [{translateX: totalWidth + yAxisThickness}],
+                  },
                   {
                     height: index === 0 ? stepHeight * 1.5 : stepHeight,
                     width: yAxisLabelWidth,
@@ -1023,54 +1023,54 @@ export const BarChart = (props: PropTypes) => {
           /*************************      Render the y axis labels below origin      *********************/
           /***********************************************************************************************/
           props.hideAxesAndRules !== true &&
-            !hideYAxisText &&
-            horizSectionsBelow.map((sectionItems, index) => {
-              let label = getLabel(
-                horizSectionsBelow[horizSectionsBelow.length - 1 - index].value,
-                index,
-              );
-              return (
-                <View
-                  key={index}
+          !hideYAxisText &&
+          horizSectionsBelow.map((sectionItems, index) => {
+            let label = getLabel(
+              horizSectionsBelow[horizSectionsBelow.length - 1 - index].value,
+              index,
+            );
+            return (
+              <View
+                key={index}
+                style={[
+                  styles.horizBar,
+                  styles.leftLabel,
+                  {
+                    position: 'absolute',
+                    zIndex: 1,
+                    bottom: stepHeight * (index - 1),
+                    width: yAxisLabelWidth,
+                    height:
+                      index === noOfSections ? stepHeight / 2 : stepHeight,
+                  },
+                  yAxisSide === 'right' && {
+                    transform: [
+                      {
+                        translateX:
+                          (props.width ? props.width : totalWidth) - 30,
+                      },
+                      {rotateY: '180deg'},
+                    ],
+                  },
+                  yAxisLabelContainerStyle,
+                ]}>
+                <Text
+                  numberOfLines={yAxisTextNumberOfLines}
+                  ellipsizeMode={'clip'}
                   style={[
-                    styles.horizBar,
-                    styles.leftLabel,
-                    {
-                      position: 'absolute',
-                      zIndex: 1,
-                      bottom: stepHeight * (index - 1),
-                      width: yAxisLabelWidth,
-                      height:
-                        index === noOfSections ? stepHeight / 2 : stepHeight,
-                    },
+                    yAxisTextStyle,
                     yAxisSide === 'right' && {
-                      transform: [
-                        {
-                          translateX:
-                            (props.width ? props.width : totalWidth) - 30,
-                        },
-                        {rotateY: '180deg'},
-                      ],
+                      transform: [{rotateY: '180deg'}],
                     },
-                    yAxisLabelContainerStyle,
+                    index === noOfSections && {
+                      marginBottom: stepHeight / -2,
+                    },
                   ]}>
-                  <Text
-                    numberOfLines={yAxisTextNumberOfLines}
-                    ellipsizeMode={'clip'}
-                    style={[
-                      yAxisTextStyle,
-                      yAxisSide === 'right' && {
-                        transform: [{rotateY: '180deg'}],
-                      },
-                      index === noOfSections && {
-                        marginBottom: stepHeight / -2,
-                      },
-                    ]}>
-                    {label}
-                  </Text>
-                </View>
-              );
-            })
+                  {label}
+                </Text>
+              </View>
+            );
+          })
           /***********************************************************************************************/
           /***********************************************************************************************/
         }
@@ -1560,77 +1560,77 @@ export const BarChart = (props: PropTypes) => {
         keyExtractor={(item, index) => index.toString()}>
         <Fragment>
           {showVerticalLines &&
-            verticalLinesAr.map((item: itemType, index: number) => {
-              let totalSpacing = initialSpacing;
-              if (verticalLinesSpacing) {
-                totalSpacing = verticalLinesSpacing * (index + 1);
+          verticalLinesAr.map((item: itemType, index: number) => {
+            let totalSpacing = initialSpacing;
+            if (verticalLinesSpacing) {
+              totalSpacing = verticalLinesSpacing * (index + 1);
+            } else {
+              if (props.stackData) {
+                totalSpacing +=
+                  (props.stackData[0].barWidth || props.barWidth || 30) / 2;
               } else {
+                totalSpacing +=
+                  (props.data[0].barWidth || props.barWidth || 30) / 2;
+              }
+              for (let i = 0; i < index; i++) {
+                let actualSpacing = spacing;
                 if (props.stackData) {
-                  totalSpacing +=
-                    (props.stackData[0].barWidth || props.barWidth || 30) / 2;
-                } else {
-                  totalSpacing +=
-                    (props.data[0].barWidth || props.barWidth || 30) / 2;
-                }
-                for (let i = 0; i < index; i++) {
-                  let actualSpacing = spacing;
-                  if (props.stackData) {
-                    if (i >= props.stackData.length - 1) {
-                      actualSpacing += (props.barWidth || 30) / 2;
-                    } else {
-                      if (
-                        props.stackData[i].spacing ||
-                        props.stackData[i].spacing === 0
-                      ) {
-                        actualSpacing = props.stackData[i].spacing;
-                      }
-                      if (props.stackData[i + 1].barWidth) {
-                        actualSpacing += props.stackData[i + 1].barWidth;
-                      } else {
-                        actualSpacing += props.barWidth || 30;
-                      }
-                    }
+                  if (i >= props.stackData.length - 1) {
+                    actualSpacing += (props.barWidth || 30) / 2;
                   } else {
-                    if (i >= props.data.length - 1) {
-                      actualSpacing += (props.barWidth || 30) / 2;
+                    if (
+                      props.stackData[i].spacing ||
+                      props.stackData[i].spacing === 0
+                    ) {
+                      actualSpacing = props.stackData[i].spacing;
+                    }
+                    if (props.stackData[i + 1].barWidth) {
+                      actualSpacing += props.stackData[i + 1].barWidth;
                     } else {
-                      if (
-                        props.data[i].spacing ||
-                        props.data[i].spacing === 0
-                      ) {
-                        console.log('here for index ' + index + ' and i ' + i);
-                        actualSpacing = props.data[i].spacing;
-                      }
-                      if (props.data[i + 1].barWidth) {
-                        actualSpacing += props.data[i + 1].barWidth;
-                      } else {
-                        actualSpacing += props.barWidth || 30;
-                      }
+                      actualSpacing += props.barWidth || 30;
                     }
                   }
-                  console.log('i = ' + i + ' actualSpacing ' + actualSpacing);
-                  totalSpacing += actualSpacing;
+                } else {
+                  if (i >= props.data.length - 1) {
+                    actualSpacing += (props.barWidth || 30) / 2;
+                  } else {
+                    if (
+                      props.data[i].spacing ||
+                      props.data[i].spacing === 0
+                    ) {
+                      console.log('here for index ' + index + ' and i ' + i);
+                      actualSpacing = props.data[i].spacing;
+                    }
+                    if (props.data[i + 1].barWidth) {
+                      actualSpacing += props.data[i + 1].barWidth;
+                    } else {
+                      actualSpacing += props.barWidth || 30;
+                    }
+                  }
                 }
+                console.log('i = ' + i + ' actualSpacing ' + actualSpacing);
+                totalSpacing += actualSpacing;
               }
+            }
 
-              return (
-                <View
-                  key={index}
-                  style={{
-                    position: 'absolute',
-                    zIndex: verticalLinesZIndex || -1,
-                    marginBottom: xAxisThickness,
-                    height:
-                      verticalLinesHeight ||
-                      containerHeight + 15 - xAxisThickness,
-                    width: verticalLinesThickness,
-                    backgroundColor: verticalLinesColor,
-                    bottom: 60 + labelsExtraHeight,
-                    left: totalSpacing,
-                  }}
-                />
-              );
-            })}
+            return (
+              <View
+                key={index}
+                style={{
+                  position: 'absolute',
+                  zIndex: verticalLinesZIndex || -1,
+                  marginBottom: xAxisThickness,
+                  height:
+                    verticalLinesHeight ||
+                    containerHeight + 15 - xAxisThickness,
+                  width: verticalLinesThickness,
+                  backgroundColor: verticalLinesColor,
+                  bottom: 60 + labelsExtraHeight,
+                  left: totalSpacing,
+                }}
+              />
+            );
+          })}
           {showLine
             ? lineConfig.isAnimated
               ? renderAnimatedLine()
@@ -1638,92 +1638,22 @@ export const BarChart = (props: PropTypes) => {
             : null}
           {props.stackData
             ? props.stackData.map((item, index) => {
-                return (
-                  <RenderStackBars
-                    key={index}
-                    stackData={props.stackData}
-                    item={item}
-                    index={index}
-                    data={data}
-                    containerHeight={containerHeight}
-                    maxValue={maxValue}
-                    spacing={item.spacing === 0 ? 0 : item.spacing || spacing}
-                    propSpacing={spacing}
-                    xAxisThickness={xAxisThickness}
-                    barWidth={props.barWidth}
-                    opacity={opacity}
-                    disablePress={item.disablePress || props.disablePress}
-                    rotateLabel={rotateLabel}
-                    showXAxisIndices={showXAxisIndices}
-                    xAxisIndicesHeight={xAxisIndicesHeight}
-                    xAxisIndicesWidth={xAxisIndicesWidth}
-                    xAxisIndicesColor={xAxisIndicesColor}
-                    horizontal={horizontal}
-                    intactTopLabel={intactTopLabel}
-                    barBorderRadius={props.barBorderRadius}
-                    color={props.color}
-                    showGradient={props.showGradient}
-                    gradientColor={props.gradientColor}
-                    barBackgroundPattern={props.barBackgroundPattern}
-                    patternId={props.patternId}
-                    label={
-                      item.label ||
-                      (props.xAxisLabelTexts && props.xAxisLabelTexts[index]
-                        ? props.xAxisLabelTexts[index]
-                        : '')
-                    }
-                    labelTextStyle={
-                      item.labelTextStyle || props.xAxisLabelTextStyle
-                    }
-                    onPress={props.onPress}
-                    xAxisTextNumberOfLines={xAxisTextNumberOfLines}
-                    renderTooltip={props.renderTooltip}
-                    leftShiftForTooltip={props.leftShiftForTooltip || 0}
-                    leftShiftForLastIndexTooltip={
-                      props.leftShiftForLastIndexTooltip || 0
-                    }
-                    initialSpacing={initialSpacing}
-                    selectedIndex={selectedIndex}
-                    setSelectedIndex={setSelectedIndex}
-                    activeOpacity={props.activeOpacity || 0.2}
-                  />
-                );
-              })
-            : data.map((item, index) => (
-                <RenderBars
+              return (
+                <RenderStackBars
                   key={index}
+                  stackData={props.stackData}
                   item={item}
                   index={index}
+                  data={data}
                   containerHeight={containerHeight}
                   maxValue={maxValue}
                   spacing={item.spacing === 0 ? 0 : item.spacing || spacing}
                   propSpacing={spacing}
-                  side={side}
-                  data={data}
-                  minHeight={props.minHeight || 0}
+                  xAxisThickness={xAxisThickness}
                   barWidth={props.barWidth}
-                  sideWidth={props.sideWidth}
-                  labelWidth={labelWidth}
                   opacity={opacity}
-                  isThreeD={isThreeD}
-                  isAnimated={isAnimated}
-                  animationDuration={animationDuration}
+                  disablePress={item.disablePress || props.disablePress}
                   rotateLabel={rotateLabel}
-                  animatedHeight={animatedHeight}
-                  appearingOpacity={appearingOpacity}
-                  roundedTop={props.roundedTop}
-                  roundedBottom={props.roundedBottom}
-                  disablePress={props.disablePress}
-                  frontColor={props.frontColor}
-                  sideColor={props.sideColor}
-                  topColor={props.topColor}
-                  showGradient={props.showGradient}
-                  gradientColor={props.gradientColor}
-                  activeOpacity={props.activeOpacity}
-                  cappedBars={props.cappedBars}
-                  capThickness={props.capThickness}
-                  capColor={props.capColor}
-                  capRadius={props.capRadius}
                   showXAxisIndices={showXAxisIndices}
                   xAxisIndicesHeight={xAxisIndicesHeight}
                   xAxisIndicesWidth={xAxisIndicesWidth}
@@ -1731,10 +1661,11 @@ export const BarChart = (props: PropTypes) => {
                   horizontal={horizontal}
                   intactTopLabel={intactTopLabel}
                   barBorderRadius={props.barBorderRadius}
-                  autoShiftLabels={autoShiftLabels}
+                  color={props.color}
+                  showGradient={props.showGradient}
+                  gradientColor={props.gradientColor}
                   barBackgroundPattern={props.barBackgroundPattern}
                   patternId={props.patternId}
-                  barMarginBottom={props.barMarginBottom}
                   label={
                     item.label ||
                     (props.xAxisLabelTexts && props.xAxisLabelTexts[index]
@@ -1754,9 +1685,78 @@ export const BarChart = (props: PropTypes) => {
                   initialSpacing={initialSpacing}
                   selectedIndex={selectedIndex}
                   setSelectedIndex={setSelectedIndex}
-                  barStyle={props.barStyle}
+                  activeOpacity={props.activeOpacity || 0.2}
                 />
-              ))}
+              );
+            })
+            : data.map((item, index) => (
+              <RenderBars
+                key={index}
+                item={item}
+                index={index}
+                containerHeight={containerHeight}
+                maxValue={maxValue}
+                spacing={item.spacing === 0 ? 0 : item.spacing || spacing}
+                propSpacing={spacing}
+                side={side}
+                data={data}
+                minHeight={props.minHeight || 0}
+                barWidth={props.barWidth}
+                sideWidth={props.sideWidth}
+                labelWidth={labelWidth}
+                opacity={opacity}
+                isThreeD={isThreeD}
+                isAnimated={isAnimated}
+                animationDuration={animationDuration}
+                rotateLabel={rotateLabel}
+                animatedHeight={animatedHeight}
+                appearingOpacity={appearingOpacity}
+                roundedTop={props.roundedTop}
+                roundedBottom={props.roundedBottom}
+                disablePress={props.disablePress}
+                frontColor={props.frontColor}
+                sideColor={props.sideColor}
+                topColor={props.topColor}
+                showGradient={props.showGradient}
+                gradientColor={props.gradientColor}
+                activeOpacity={props.activeOpacity}
+                cappedBars={props.cappedBars}
+                capThickness={props.capThickness}
+                capColor={props.capColor}
+                capRadius={props.capRadius}
+                showXAxisIndices={showXAxisIndices}
+                xAxisIndicesHeight={xAxisIndicesHeight}
+                xAxisIndicesWidth={xAxisIndicesWidth}
+                xAxisIndicesColor={xAxisIndicesColor}
+                horizontal={horizontal}
+                intactTopLabel={intactTopLabel}
+                barBorderRadius={props.barBorderRadius}
+                autoShiftLabels={autoShiftLabels}
+                barBackgroundPattern={props.barBackgroundPattern}
+                patternId={props.patternId}
+                barMarginBottom={props.barMarginBottom}
+                label={
+                  item.label ||
+                  (props.xAxisLabelTexts && props.xAxisLabelTexts[index]
+                    ? props.xAxisLabelTexts[index]
+                    : '')
+                }
+                labelTextStyle={
+                  item.labelTextStyle || props.xAxisLabelTextStyle
+                }
+                onPress={props.onPress}
+                xAxisTextNumberOfLines={xAxisTextNumberOfLines}
+                renderTooltip={props.renderTooltip}
+                leftShiftForTooltip={props.leftShiftForTooltip || 0}
+                leftShiftForLastIndexTooltip={
+                  props.leftShiftForLastIndexTooltip || 0
+                }
+                initialSpacing={initialSpacing}
+                selectedIndex={selectedIndex}
+                setSelectedIndex={setSelectedIndex}
+                barStyle={props.barStyle}
+              />
+            ))}
         </Fragment>
       </ScrollView>
     </View>
