@@ -903,65 +903,64 @@ export const BarChart = (props: PropTypes) => {
           /**************************      Render the y axis labels separately      **********************/
           /***********************************************************************************************/
           props.hideAxesAndRules !== true &&
-            !hideYAxisText &&
-            horizSections.map((sectionItems, index) => {
-              let label = getLabel(sectionItems.value, index);
-              if (hideOrigin && index === horizSections.length - 1) {
-                label = '';
-              }
-              return (
-                <View
-                  key={index}
+          !hideYAxisText &&
+          horizSections.map((sectionItems, index) => {
+            let label = getLabel(sectionItems.value, index);
+            if (hideOrigin && index === horizSections.length - 1) {
+              label = '';
+            }
+            return (
+              <View
+                key={index}
+                style={[
+                  styles.horizBar,
+                  styles.leftLabel,
+                  {
+                    position: 'absolute',
+                    top: stepHeight * index,
+                    width: yAxisLabelWidth,
+                    height:
+                      index === noOfSections ? stepHeight / 2 : stepHeight,
+                  },
+                  yAxisSide === 'right' && {
+                    transform: [
+                      {
+                        translateX:
+                          (props.width ? props.width : totalWidth) - 30,
+                      },
+                      {rotateY: '180deg'},
+                    ],
+                  },
+                  horizontal &&
+                  !yAxisAtTop && {
+                    transform: [
+                      {
+                        translateX:
+                          (props.width || Math.min(300, totalWidth)) +
+                          yAxisThickness +
+                          yAxisLabelWidth,
+                      },
+                    ],
+                  },
+                  yAxisLabelContainerStyle,
+                ]}>
+                <Text
+                  numberOfLines={yAxisTextNumberOfLines}
+                  ellipsizeMode={'clip'}
                   style={[
-                    styles.horizBar,
-                    styles.leftLabel,
-                    {
-                      position: 'absolute',
-                      zIndex: 1,
-                      top: stepHeight * index,
-                      width: yAxisLabelWidth,
-                      height:
-                        index === noOfSections ? stepHeight / 2 : stepHeight,
-                    },
+                    yAxisTextStyle,
                     yAxisSide === 'right' && {
-                      transform: [
-                        {
-                          translateX:
-                            (props.width ? props.width : totalWidth) - 30,
-                        },
-                        {rotateY: '180deg'},
-                      ],
+                      transform: [{rotateY: '180deg'}],
                     },
-                    horizontal &&
-                      !yAxisAtTop && {
-                        transform: [
-                          {
-                            translateX:
-                              (props.width || Math.min(300, totalWidth)) +
-                              yAxisThickness +
-                              yAxisLabelWidth,
-                          },
-                        ],
-                      },
-                    yAxisLabelContainerStyle,
+                    index === noOfSections && {
+                      marginBottom: stepHeight / -2,
+                    },
                   ]}>
-                  <Text
-                    numberOfLines={yAxisTextNumberOfLines}
-                    ellipsizeMode={'clip'}
-                    style={[
-                      yAxisTextStyle,
-                      yAxisSide === 'right' && {
-                        transform: [{rotateY: '180deg'}],
-                      },
-                      index === noOfSections && {
-                        marginBottom: stepHeight / -2,
-                      },
-                    ]}>
-                    {label}
-                  </Text>
-                </View>
-              );
-            })
+                  {label}
+                </Text>
+              </View>
+            );
+          })
           /***********************************************************************************************/
           /***********************************************************************************************/
         }
@@ -1081,117 +1080,117 @@ export const BarChart = (props: PropTypes) => {
           /*************************      Render the reference lines separately      *********************/
           /***********************************************************************************************/
           props.hideAxesAndRules !== true &&
-            !hideYAxisText &&
-            horizSections.map((sectionItems, index) => {
-              let label = getLabel(sectionItems.value, index);
-              if (hideOrigin && index === horizSections.length - 1) {
-                label = '';
-              }
-              return (
-                <View
-                  key={index}
-                  style={[
-                    styles.horizBar,
-                    styles.leftLabel,
-                    {
+          !hideYAxisText &&
+          horizSections.map((sectionItems, index) => {
+            let label = getLabel(sectionItems.value, index);
+            if (hideOrigin && index === horizSections.length - 1) {
+              label = '';
+            }
+            console.log(sectionItems, index, noOfSections, referenceLine1Position)
+            return (
+              <View
+                key={index}
+                style={[
+                  styles.horizBar,
+                  styles.leftLabel,
+                  {
+                    position: 'absolute',
+                    top: stepHeight * index,
+                    width: yAxisLabelWidth,
+                    height:
+                      index === noOfSections ? stepHeight / 2 : stepHeight,
+                  },
+                  yAxisSide === 'right' && {
+                    transform: [
+                      {
+                        translateX:
+                          (props.width ? props.width : totalWidth) - 30,
+                      },
+                      {rotateY: '180deg'},
+                    ],
+                  },
+                ]}>
+                {index === noOfSections && showReferenceLine1 ? (
+                  <View
+                    style={{
                       position: 'absolute',
-                      zIndex: 1,
-                      top: stepHeight * index,
-                      width: yAxisLabelWidth,
-                      height:
-                        index === noOfSections ? stepHeight / 2 : stepHeight,
-                    },
-                    yAxisSide === 'right' && {
-                      transform: [
-                        {
-                          translateX:
-                            (props.width ? props.width : totalWidth) - 30,
-                        },
-                        {rotateY: '180deg'},
-                      ],
-                    },
-                  ]}>
-                  {index === noOfSections && showReferenceLine1 ? (
-                    <View
-                      style={{
-                        position: 'absolute',
-                        bottom:
-                          (referenceLine1Position * containerHeight) / maxValue,
-                        left:
-                          yAxisSide === 'right'
-                            ? yAxisLabelWidth + yAxisThickness
-                            : yAxisLabelWidth + yAxisThickness - 5,
-                      }}>
-                      <Rule config={referenceLine1Config} />
-                      {referenceLine1Config.labelText ? (
-                        <Text
-                          style={[
-                            {position: 'absolute'},
-                            yAxisSide === 'right' && {
-                              transform: [{rotateY: '180deg'}],
-                            },
-                            referenceLine1Config.labelTextStyle,
-                          ]}>
-                          {referenceLine1Config.labelText}
-                        </Text>
-                      ) : null}
-                    </View>
-                  ) : null}
-                  {index === noOfSections && showReferenceLine2 ? (
-                    <View
-                      style={{
-                        position: 'absolute',
-                        bottom:
-                          (referenceLine2Position * containerHeight) / maxValue,
-                        left:
-                          yAxisSide === 'right'
-                            ? yAxisLabelWidth + yAxisThickness
-                            : yAxisLabelWidth + yAxisThickness - 5,
-                      }}>
-                      <Rule config={referenceLine2Config} />
-                      {referenceLine2Config.labelText ? (
-                        <Text
-                          style={[
-                            {position: 'absolute'},
-                            yAxisSide === 'right' && {
-                              transform: [{rotateY: '180deg'}],
-                            },
-                            referenceLine2Config.labelTextStyle,
-                          ]}>
-                          {referenceLine2Config.labelText}
-                        </Text>
-                      ) : null}
-                    </View>
-                  ) : null}
-                  {index === noOfSections && showReferenceLine3 ? (
-                    <View
-                      style={{
-                        position: 'absolute',
-                        bottom:
-                          (referenceLine3Position * containerHeight) / maxValue,
-                        left:
-                          yAxisSide === 'right'
-                            ? yAxisLabelWidth + yAxisThickness
-                            : yAxisLabelWidth + yAxisThickness - 5,
-                      }}>
-                      <Rule config={referenceLine3Config} />
-                      {referenceLine3Config.labelText ? (
-                        <Text
-                          style={[
-                            {position: 'absolute'},
-                            yAxisSide === 'right' && {
-                              transform: [{rotateY: '180deg'}],
-                            },
-                            referenceLine3Config.labelTextStyle,
-                          ]}>
-                          {referenceLine3Config.labelText}
-                        </Text>
-                      ) : null}
-                    </View>
-                  ) : null}
-                </View>
-              );
-            })
+                      bottom:
+                        (referenceLine1Position * containerHeight) / maxValue,
+                      left:
+                        yAxisSide === 'right'
+                          ? yAxisLabelWidth + yAxisThickness
+                          : yAxisLabelWidth + yAxisThickness - 5,
+                    }}>
+                    <Rule config={referenceLine1Config} />
+                    {referenceLine1Config.labelText ? (
+                      <Text
+                        style={[
+                          {position: 'absolute'},
+                          yAxisSide === 'right' && {
+                            transform: [{rotateY: '180deg'}],
+                          },
+                          referenceLine1Config.labelTextStyle,
+                        ]}>
+                        {referenceLine1Config.labelText}
+                      </Text>
+                    ) : null}
+                  </View>
+                ) : null}
+                {index === noOfSections && showReferenceLine2 ? (
+                  <View
+                    style={{
+                      position: 'absolute',
+                      bottom:
+                        (referenceLine2Position * containerHeight) / maxValue,
+                      left:
+                        yAxisSide === 'right'
+                          ? yAxisLabelWidth + yAxisThickness
+                          : yAxisLabelWidth + yAxisThickness - 5,
+                    }}>
+                    <Rule config={referenceLine2Config} />
+                    {referenceLine2Config.labelText ? (
+                      <Text
+                        style={[
+                          {position: 'absolute'},
+                          yAxisSide === 'right' && {
+                            transform: [{rotateY: '180deg'}],
+                          },
+                          referenceLine2Config.labelTextStyle,
+                        ]}>
+                        {referenceLine2Config.labelText}
+                      </Text>
+                    ) : null}
+                  </View>
+                ) : null}
+                {index === noOfSections && showReferenceLine3 ? (
+                  <View
+                    style={{
+                      position: 'absolute',
+                      bottom:
+                        (referenceLine3Position * containerHeight) / maxValue,
+                      left:
+                        yAxisSide === 'right'
+                          ? yAxisLabelWidth + yAxisThickness
+                          : yAxisLabelWidth + yAxisThickness - 5,
+                    }}>
+                    <Rule config={referenceLine3Config} />
+                    {referenceLine3Config.labelText ? (
+                      <Text
+                        style={[
+                          {position: 'absolute'},
+                          yAxisSide === 'right' && {
+                            transform: [{rotateY: '180deg'}],
+                          },
+                          referenceLine3Config.labelTextStyle,
+                        ]}>
+                        {referenceLine3Config.labelText}
+                      </Text>
+                    ) : null}
+                  </View>
+                ) : null}
+              </View>
+            );
+          })
           /***********************************************************************************************/
           /***********************************************************************************************/
         }
