@@ -1086,7 +1086,7 @@ export const BarChart = (props: PropTypes) => {
             if (hideOrigin && index === horizSections.length - 1) {
               label = '';
             }
-            
+
             return (
               <View
                 key={index}
